@@ -19,6 +19,9 @@ public class ArrayStack extends AbstractStack {
     }
 
     public Object popS() {
+        size++;
+        elements[size] = null;
+        size--;
         return elements[size];
     }
 
