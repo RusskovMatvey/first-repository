@@ -19,10 +19,14 @@ public class ArrayStack extends AbstractStack {
     }
 
     public Object popS() {
+<<<<<<< HEAD
         size++;
         elements[size] = null;
         size--;
         return elements[size];
+=======
+        return elements[size]; // здесь случайо не size--?
+>>>>>>> dc5c9a2e7632e14a81efffbdbe03e6b8379994b9
     }
 
     public Object peek() {
