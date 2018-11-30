@@ -1,3 +1,5 @@
+package matvey.russkov.lecture2;
+
 public class StackTest {
     public static void fill(Stack stack) {
         for (int i = 0; i < 5; i++) {

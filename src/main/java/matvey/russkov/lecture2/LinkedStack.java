@@ -1,7 +1,9 @@
+package matvey.russkov.lecture2;
+
 public class LinkedStack extends AbstractStack {
     private Node head;
-    
-    private static class Node {
+
+    private class Node {
         private Object value;
         private Node next;
 

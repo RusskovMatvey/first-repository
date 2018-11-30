@@ -1,3 +1,5 @@
+package matvey.russkov.lecture2;
+
 public abstract class AbstractStack implements Stack {
     protected int size;
 

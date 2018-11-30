@@ -1,3 +1,5 @@
+package matvey.russkov.lecture2;
+
 public class ArrayStack extends AbstractStack {
     private Object[] elements = new Object[0];
 
