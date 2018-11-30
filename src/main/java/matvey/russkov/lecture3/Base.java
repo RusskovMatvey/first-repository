@@ -12,5 +12,8 @@ public class Base {
 
     void abstractBaseMethod() {
         System.out.println("Called Base method");
+
+
+
     }
 }
