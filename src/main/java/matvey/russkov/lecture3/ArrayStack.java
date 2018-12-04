@@ -2,11 +2,11 @@ public class ArrayStack<E> extends AbstractStack<E> implements Stack<E> {
     private E[] elements = (E[]) new Object[0];
 
     public ArrayStack(int capacity) {
-        elements = (E[]) (new Object[capacity]);
+        elements = (E[]) new Object[capacity];
     }
 
     public void push(E value) {
-        ensureCapacity(size+1);
+        ensureCapacity(size + 1);
         elements[size] = value;
         size++;
     }
@@ -15,11 +15,8 @@ public class ArrayStack<E> extends AbstractStack<E> implements Stack<E> {
         if (elements.length >= capacity) {
             return;
         }
-        E[] newElements = (E[]) new Object[capacity * 2];
-        for (int i = 0; i < size; i++) {
-            newElements[i] = elements[i];
-        }
-        elements = newElements;
+        E[] buffer = (E[]) new Object[capacity];
+        System.arraycopy(elements, 0, buffer, 0, elements.length);
     }
 
     public E popS() {
@@ -33,6 +30,6 @@ public class ArrayStack<E> extends AbstractStack<E> implements Stack<E> {
         if (size == 0) {
             return null;
         }
-        return elements[size-1];
+        return elements[size - 1];
     }
 }

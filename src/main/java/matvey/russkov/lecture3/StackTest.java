@@ -6,7 +6,7 @@ public class StackTest {
     }
     public static <E> void dump(Stack<E> stack) {
         System.out.println(stack.size());
-        while (stack.size() != 0) {
+        while (!stack.isEmpty()) {
             System.out.println(stack.peek() + " " + stack.pop());
         }
     }

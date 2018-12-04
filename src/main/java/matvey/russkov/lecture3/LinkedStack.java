@@ -5,7 +5,7 @@ public class LinkedStack<E> extends AbstractStack<E> {
         private E value;
         private Node<E> next;
 
-        public Node(Node<E> next, E value) {
+        private Node(Node<E> next, E value) {
             this.next = next;
             this.value = value;
         }
