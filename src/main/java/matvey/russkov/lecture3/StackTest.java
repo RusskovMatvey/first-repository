@@ -12,12 +12,12 @@ public class StackTest {
     }
     public static void main(String[] args) {
         {
-            LinkedStack<String> stack = new LinkedStack<String>();
+            AbstractStack<String> stack = new LinkedStack<String>();
             fill(stack);
             dump(stack);
         }
         {
-            ArrayStack<String> stack = new ArrayStack<String>(10);
+            AbstractStack<String> stack = new ArrayStack<String>(10);
             fill(stack);
             dump(stack);
         }
