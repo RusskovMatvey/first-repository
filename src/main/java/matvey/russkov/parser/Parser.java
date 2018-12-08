@@ -12,7 +12,7 @@ public class Parser {
     private ArrayList story = new ArrayList();//30 url считывает со страницы, но невсегда.
 
     public void getStory() throws IOException {
-        int countPage = 300;//количество страниц
+        final int countPage = 300;//количество страниц
         for (int i = 0; i < countPage; i++) {
             Document doc = Jsoup.connect("https://www.fmylife.com/tops?page=" + Integer.toString(i)).get();
             Elements blocks = doc.getElementsByAttributeValue("class", "block hidden-xs");
