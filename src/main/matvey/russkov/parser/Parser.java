@@ -1,4 +1,4 @@
-package matvey.russkov.parser;
+package main.matvey.russkov.parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

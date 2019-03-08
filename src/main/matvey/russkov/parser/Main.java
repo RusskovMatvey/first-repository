@@ -1,4 +1,4 @@
-package matvey.russkov.parser;
+package main.matvey.russkov.parser;
 
 import java.io.IOException;
 
