@@ -2,7 +2,7 @@ package main.matvey.russkov.lab3ex;
 
 public class Trainer extends Thread {
     private final int valTasks;
-    private Task task;
+    private final Task task;
 
     Trainer(Task task, int valTasks) {
         super("Trainer");

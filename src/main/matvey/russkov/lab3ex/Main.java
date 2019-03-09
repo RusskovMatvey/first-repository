@@ -18,7 +18,7 @@ public class Main {
 
                 trainer.join();
                 sportsman.join();
-            }catch (Exception e) {
+            }catch (IllegalArgumentException e) {
                 System.out.println("Введите число.");
             }
         } else {

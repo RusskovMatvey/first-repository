@@ -18,10 +18,10 @@ public class Main {
                     if (val >= 1) {
                         byte COUNT = 4;
                         ArrayList<Bank> arrayOfClass = new ArrayList<>(COUNT);
-                        arrayOfClass.add(new BankOne());
-                        arrayOfClass.add(new BankTwo());
-                        arrayOfClass.add(new BankThree());
-                        arrayOfClass.add(new BankFour());
+                        arrayOfClass.add(new BankOne(66.0, 75.0,65.7,74.68));
+                        arrayOfClass.add(new BankTwo(66.09, 75.08,65.31, 74.86));
+                        arrayOfClass.add(new BankThree(67.0, 77.00, 64.00,75.09));
+                        arrayOfClass.add(new BankFour(65.99,76.08, 65.08, 75.9));
                         if (args[1].equals("покупка")) {
                             int min_index = 0;
                             double min = Double.MAX_VALUE;
