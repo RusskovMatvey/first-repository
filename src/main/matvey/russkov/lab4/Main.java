@@ -6,13 +6,16 @@ public class Main {
             try {
                 int valFlow = Integer.parseInt(args[0]);
                 int count = Integer.parseInt(args[1]);
-                if (count > 0) {
+                if (count > 0 & valFlow > 0) {
                     System.out.println("Количество потоков: " + valFlow + " Число: " + count);
-                    Object monitor = new Object();
+                    Count obj = new Count(count, valFlow);
                     Flow[] arrayOfFlow = new Flow[valFlow];
 
                     for (int i = 0; i < valFlow; i++) {
-                        arrayOfFlow[i] = new Flow(count, i, monitor, valFlow);
+                        arrayOfFlow[i] = new Flow(obj, i, valFlow);
+                    }
+
+                    for (int i = 0; i < valFlow; i++) {
                         arrayOfFlow[i].start();
                     }
 
