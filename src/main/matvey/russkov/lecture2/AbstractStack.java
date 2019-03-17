@@ -1,6 +1,6 @@
 package matvey.russkov.lecture2;
 
-public abstract class AbstractStack implements Stack {
+public abstract class AbstractStack implements matvey.russkov.lecture2.Stack {
     protected int size;
 
     public final boolean isEmpty() {

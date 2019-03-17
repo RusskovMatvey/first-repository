@@ -6,21 +6,19 @@ public class Main {
             try {
                 int valFlow = Integer.parseInt(args[0]);
                 int count = Integer.parseInt(args[1]);
+
                 if (count > 0 & valFlow > 0) {
                     System.out.println("Количество потоков: " + valFlow + " Число: " + count);
-                    Count obj = new Count(count, valFlow);
+                    Task task = new Task(count, valFlow);
                     Flow[] arrayOfFlow = new Flow[valFlow];
 
                     for (int i = 0; i < valFlow; i++) {
-                        arrayOfFlow[i] = new Flow(obj, i, valFlow);
+                        arrayOfFlow[i] = new Flow(i==0?null:arrayOfFlow[i-1],task, i);
                     }
+                    arrayOfFlow[0].setWait(arrayOfFlow[valFlow - 1]);
 
-                    for (int i = 0; i < valFlow; i++) {
+                    for (int i = valFlow-1; i >= 0; i--) {
                         arrayOfFlow[i].start();
-                    }
-
-                    for (int i = 0; i < valFlow; i++) {
-                        arrayOfFlow[i].join();
                     }
 
 

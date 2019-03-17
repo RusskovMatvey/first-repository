@@ -1,41 +1,41 @@
 package main.matvey.russkov.lab4;
 
 public class Flow extends Thread {
-    private final Count count;
+    private Object wait;
+    private Task task;
     private final int number;
-    private int valFlow;
+    private final int count;
 
-    public Flow(Count count, int number, int valFlow) {
+    Flow(Object wait, Task task, int number) {
         super("Flow");
-        this.count = count;
+        this.wait = wait;
+        this.task = task;
         this.number = number;
-        this.valFlow = valFlow;
+        this.count = task.getCount();
+    }
 
+    void setWait(Object wait) {
+        this.wait = wait;
     }
 
     public void run() {
         try {
-            while (true) {
-                synchronized (count) {
-                    if (valFlow - count.getNumberFlow() == number) {
-                        count.subtractionNumberFlow();
-                        if (count.getCount() > 0) {
+            for (int i = 0; i < count; ++i) {
 
-                            count.subtractionCount();
-                            System.out.println(Thread.currentThread().getName() + " " + number + " count: " + count.getCount());
+                if (!(number == 0 && i == 0))
+                    synchronized (wait) {
+                        wait.wait();
+                    }
 
-                            count.notifyAll();
-                            if (count.getCount() > 0) {
-                                count.wait();
-                            } else {
-                                break;
-                            }
-                        } else {
-                            count.notifyAll();
-                            break;
-                        }
+                synchronized (this) {
+                    if (task.getCount() > 0) {
+
+                        task.subtractionCount();
+                        System.out.println(Thread.currentThread().getName() + " " + number + " count: " + task.getCount());
+
+                        this.notify();
                     } else {
-                        count.wait();
+                        this.notify();
                     }
                 }
             }
