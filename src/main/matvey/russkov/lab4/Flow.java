@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab4;
 
+import java.util.ArrayList;
+
 public class Flow extends Thread {
     private Object wait;
     private Task task;
@@ -14,11 +16,13 @@ public class Flow extends Thread {
         this.count = task.getCount();
     }
 
+    ArrayList<Integer> a = new ArrayList<>();
     void setWait(Object wait) {
         this.wait = wait;
     }
 
     public void run() {
+        ArrayList<Integer> a = new ArrayList<>();
         try {
             for (int i = 0; i < count; ++i) {
 

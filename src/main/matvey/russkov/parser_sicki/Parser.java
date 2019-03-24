@@ -1,11 +1,9 @@
-package main.matvey.russkov.parser;
+package main.matvey.russkov.parser_sicki;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.AbstractList;
 import java.util.ArrayList;
@@ -18,7 +16,7 @@ class Parser {
         this.countPage = countPage;
     }
 
-    void getStories() throws IOException {
+    ArrayList<String> getStories() throws IOException {
         for (int i = 0; i < countPage; i++) {
             try {
                 /*
@@ -30,19 +28,13 @@ class Parser {
             } catch (InterruptedException e) {
                 System.err.println(e.getMessage());
             }
-            Document doc = Jsoup.connect("https://www.fmylife.com/tops?page=" + i).get();
-            try(FileWriter writer = new FileWriter("gg.html", false))
-            {
-
-                writer.write(doc.toString());
-                writer.flush();
-            }
-            Elements blocks = doc.getElementsByAttributeValue("class", "block hidden-xs");
-            for (Element block : blocks) {
-                Element body = block.child(0);
-                Elements story = body.getElementsByAttributeValue("href", body.attr("href"));
-                stories.add(story.text());// может добавить не все истории
-            }
+            Document doc = Jsoup.connect("http://sickipedia.net/hottest/today?pageIndex=" + "0").get();
+            Elements blocks = doc.getElementsByTag("script");
+            String json = blocks.get(3).toString();
+            //System.out.println(json.substring(json.indexOf("["), json.indexOf("]") + 1));
+            //ObjectMapper objectMapper = new ObjectMapper();
+            stories.add(json.substring(json.indexOf("["), json.indexOf("]") + 1));
         }
+        return (ArrayList<String>) stories;
     }
 }
