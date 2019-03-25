@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab2;
 
+import main.matvey.russkov.lab5.GUI;
+
 public class BankFour extends Bank implements FirstBank {
     private double usdExchangeRateBuy;
     private double eurExchangeRateBuy;
@@ -44,7 +46,8 @@ public class BankFour extends Bank implements FirstBank {
 
     @Override
     void whoIAm(){
-        System.out.println("Bank Four:");
+        //System.out.println("Bank Four:");
+        GUI.textArea.append("Bank Four:\n");
     }
 
 }

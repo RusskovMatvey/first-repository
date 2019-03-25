@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab2;
 
+import main.matvey.russkov.lab5.GUI;
+
 public class BankThree extends Bank implements ThirdBank{
     private double usdExchangeRateBuy;
     private double eurExchangeRateBuy;
@@ -44,6 +46,7 @@ public class BankThree extends Bank implements ThirdBank{
 
     @Override
     void whoIAm(){
-        System.out.println("Bank Three:");
+        //System.out.println("Bank Three:");
+        GUI.textArea.append("Bank Three:\n");
     }
 }

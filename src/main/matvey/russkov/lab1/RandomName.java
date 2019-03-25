@@ -17,7 +17,7 @@ class RandomName {
         this.count = count;
 
         try {
-            File file = new File("E:\\Poly\\src\\com\\company\\SecondName.txt");
+            File file = new File("C:\\Users\\russk\\IdeaProjects\\first-repository\\src\\main\\matvey\\russkov\\lab1\\SecondName.txt");
             FileReader fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
             String line = reader.readLine();

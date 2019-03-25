@@ -25,8 +25,9 @@ public class GUI extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 textArea.setText("");
-                String[] args = new String[1];
+                String[] args = new String[2];
                 args[0] = input1.getText();
+                args[1] = input2.getText();
                 main.matvey.russkov.lab1.Main.main(args);
             }
 

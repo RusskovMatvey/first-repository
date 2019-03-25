@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab2;
 
+import main.matvey.russkov.lab5.GUI;
+
 public class Bank implements ExchangeRate {
     private double usdExchangeRateBuy;
     private double eurExchangeRateBuy;
@@ -53,10 +55,12 @@ public class Bank implements ExchangeRate {
     public double buy(int n, double valBuy){
         double ruble;
         if (n == 1) {
-            System.out.println("Кол-во покупаемой валюты: " + valBuy + " USD");
+            //System.out.println("Кол-во покупаемой валюты: " + valBuy + " USD");
+            GUI.textArea.append("Кол-во покупаемой валюты: " + valBuy + " USD\n");
             ruble = valBuy * this.usdExchangeRateBuy;
         } else {
-            System.out.println("Кол-во покупаемой валюты: " + valBuy + " EUR");
+            //System.out.println("Кол-во покупаемой валюты: " + valBuy + " EUR");
+            GUI.textArea.append("Кол-во покупаемой валюты: " + valBuy + " EUR\n");
             ruble = valBuy * this.eurExchangeRateBuy;
         }
         return ruble;
@@ -66,10 +70,12 @@ public class Bank implements ExchangeRate {
     public double sell(int n, double valSell){
         double ruble;
         if (n == 1) {
-            System.out.println("Кол-во продаваемой валюты: " + valSell + " USD");
+            //System.out.println("Кол-во продаваемой валюты: " + valSell + " USD");
+            GUI.textArea.append("Кол-во продаваемой валюты: " + valSell + " USD\n");
             ruble = valSell * this.usdExchangeRateSell;
         } else {
-            System.out.println("Кол-во продаваемой валюты: " + valSell + " EUR");
+            //System.out.println("Кол-во продаваемой валюты: " + valSell + " EUR");
+            GUI.textArea.append("Кол-во продаваемой валюты: " + valSell + " EUR\n");
             ruble = valSell * this.eurExchangeRateSell;
         }
         return ruble;

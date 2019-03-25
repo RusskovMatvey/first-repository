@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab2;
 
+import main.matvey.russkov.lab5.GUI;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -31,17 +33,23 @@ public class Main {
                                     min = arrayOfClass.get(i).buy(rate, val);
                                 }
                             }
-                            System.out.print("Самая выгодная покупка будет в банке: ");
+                            //System.out.print("Самая выгодная покупка будет в банке: ");
+                            GUI.textArea.append("Самая выгодная покупка будет в банке: \n");
                             arrayOfClass.get(min_index).whoIAm();
-                            System.out.println(arrayOfClass.get(min_index).buy(rate, val));
+                            //System.out.println(arrayOfClass.get(min_index).buy(rate, val));
+                            GUI.textArea.append(arrayOfClass.get(min_index).buy(rate, val) + "\n");
                             arrayOfClass.remove(min_index);
-                            System.out.println("-------------------------------------");
+                            //System.out.println("-------------------------------------");
+                            GUI.textArea.append("-------------------------------------\n");
+
 
 
                             for (Bank arrayOfClass1 : arrayOfClass) {
-                                System.out.println("");
+                                //System.out.println("");
+                                GUI.textArea.append("\n");
                                 arrayOfClass1.whoIAm();
-                                System.out.println(arrayOfClass1.buy(rate, val) + " RUB");
+                                //System.out.println(arrayOfClass1.buy(rate, val) + " RUB");
+                                GUI.textArea.append(arrayOfClass1.buy(rate, val) + " RUB\n");
                             }
                         } else {
                             int max_index = 0;
@@ -52,28 +60,37 @@ public class Main {
                                     max = arrayOfClass.get(i).sell(rate, val);
                                 }
                             }
-                            System.out.print("Самая выгодная продажа будет в банке: ");
+                            //System.out.print("Самая выгодная продажа будет в банке: ");
+                            GUI.textArea.append("Самая выгодная продажа будет в банке: \n");
+
                             arrayOfClass.get(max_index).whoIAm();
-                            System.out.println(arrayOfClass.get(max_index).sell(rate, val));
+                            //System.out.println(arrayOfClass.get(max_index).sell(rate, val));
+                            GUI.textArea.append(arrayOfClass.get(max_index).sell(rate, val) + " RUB\n");
                             arrayOfClass.remove(max_index);
 
                             for (Bank arrayOfClass1 : arrayOfClass) {
-                                System.out.println(" ");
+                                //System.out.println(" ");
+                                GUI.textArea.append("\n");
                                 arrayOfClass1.whoIAm();
-                                System.out.println(arrayOfClass1.sell(rate, val) + " RUB");
+                                //System.out.println(arrayOfClass1.sell(rate, val) + " RUB");
+                                GUI.textArea.append(arrayOfClass1.sell(rate, val) + " RUB\n");
                             }
                         }
                     } else {
-                        System.out.println("Введите положительное число!!!");
+                        //System.out.println("Введите положительное число!!!");
+                        GUI.textArea.append("Введите положительное число!!!\n");
                     }
                 } catch (Exception e) {
-                    System.out.println("Введите корректные данные (3-ий аргумент)");
+                    //System.out.println("Введите корректные данные (3-ий аргумент)");
+                    GUI.textArea.append("Введите корректные данные (3-ий аргумент)\n");
                 }
             } else {
-                System.out.println("Введите корректные данные");
+                //System.out.println("Введите корректные данные");
+                GUI.textArea.append("Введите корректные данные\n");
             }
         } else {
-            System.out.println("Program supported 3 arg");
+            //System.out.println("Program supported 3 arg");
+            GUI.textArea.append("Program supported 3 arg\n");
         }
     }
 }
