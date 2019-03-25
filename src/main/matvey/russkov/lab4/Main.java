@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab4;
 
+import main.matvey.russkov.lab5.GUI;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         if (args.length == 2) {
@@ -8,7 +10,9 @@ public class Main {
                 int count = Integer.parseInt(args[1]);
 
                 if (count > 0 & valFlow > 0) {
-                    System.out.println("Количество потоков: " + valFlow + " Число: " + count);
+                    //System.out.println("Количество потоков: " + valFlow + " Число: " + count);
+                    GUI.textArea.append("Количество потоков: " + valFlow + " Число: " + count + "\n");
+
                     Task task = new Task(count, valFlow);
                     Flow[] arrayOfFlow = new Flow[valFlow];
 
@@ -23,13 +27,16 @@ public class Main {
 
 
                 } else {
-                    System.out.println("Введите положительное число");
+                    //System.out.println("Введите положительное число");
+                    GUI.textArea.append("Введите положительное число\n");
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Введите число.");
+                //System.out.println("Введите число.");
+                GUI.textArea.append("Введите число.\n");
             }
         } else {
-            System.out.println("Неверное кол-во аргументов (Возможен только один аргумент)");
+            //System.out.println("Неверное кол-во аргументов (Возможен только один аргумент)");
+            GUI.textArea.append("Неверное кол-во аргументов (Возможен только один аргумент)\n");
         }
     }
 }

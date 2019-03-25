@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab3ex;
 
+import main.matvey.russkov.lab5.GUI;
+
 public class Sportsman extends Thread {
     private final int valTasks;
     private final Task task;
@@ -14,7 +16,8 @@ public class Sportsman extends Thread {
         try {
             while (true) {
                 synchronized (task) {
-                    System.out.println(Thread.currentThread().getName() + " Задача " + task.getCount());
+                    //System.out.println(Thread.currentThread().getName() + " Задача " + task.getCount());
+                    GUI.textArea.append(Thread.currentThread().getName() + " Задача " + task.getCount() + "\n");
                     task.notify();
 
                     if (task.getCount() < valTasks) {

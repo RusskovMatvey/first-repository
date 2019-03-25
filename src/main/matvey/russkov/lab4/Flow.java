@@ -1,5 +1,7 @@
 package main.matvey.russkov.lab4;
 
+import main.matvey.russkov.lab5.GUI;
+
 import java.util.ArrayList;
 
 public class Flow extends Thread {
@@ -35,7 +37,8 @@ public class Flow extends Thread {
                     if (task.getCount() > 0) {
 
                         task.subtractionCount();
-                        System.out.println(Thread.currentThread().getName() + " " + number + " count: " + task.getCount());
+                        //System.out.println(Thread.currentThread().getName() + " " + number + " count: " + task.getCount());
+                        GUI.textArea.append(Thread.currentThread().getName() + " " + number + " count: " + task.getCount() + "\n");
 
                         this.notify();
                     } else {
