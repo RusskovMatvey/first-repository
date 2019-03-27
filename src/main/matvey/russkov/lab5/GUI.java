@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 
 public class GUI extends JFrame {
 
@@ -151,8 +153,30 @@ public class GUI extends JFrame {
         super.setSize(640, 480);
         super.setTitle("Task #5");
         main_panel.setVisible(true);
+        super.setExtendedState(MAXIMIZED_BOTH);
         super.add(main_panel);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Я добавил
+        /*addWindowStateListener(new WindowStateListener() {
+            @Override
+            public void windowStateChanged(WindowEvent windowEvent) {
+                if (windowEvent.getNewState() == GUI.MAXIMIZED_BOTH) {
+                    dispose();
+                    setUndecorated(true);
+                    showFrame();
+                } else {
+                    dispose();
+                    setUndecorated(false);
+                    showFrame();
+                }
+            }
+            private void showFrame() {
+                pack();
+                setVisible(true);
+            }
+        });*/
+        //ЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯ
+
         super.setLocationRelativeTo(null);
         main_panel.setLayout(new GridBagLayout());
         panel.setLayout(new GridBagLayout());
